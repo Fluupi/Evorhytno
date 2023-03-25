@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class InfinityWar : GameMode
 {
-    public override void LaunchGame()
+    public override void LaunchNextLevel()
     {
-        throw new System.NotImplementedException();
+        partition.GenerateRandomScript();
+        director.Play();
     }
 }

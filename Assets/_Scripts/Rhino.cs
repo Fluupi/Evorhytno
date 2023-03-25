@@ -9,10 +9,12 @@ public class Rhino : MonoBehaviour
     [SerializeField] private GameObject aliveGameObject;
     [SerializeField] private GameObject deadGameObject;
     public bool IsAlive => isAlive;
+    public bool Pause;
 
     [Header("Movement")]
     [SerializeField] private Transform moveArea;
     [SerializeField] private float speed;
+    [SerializeField] private float speedPercentage;
     [SerializeField] private float span;
     private Vector3 destination;
 
@@ -36,7 +38,7 @@ public class Rhino : MonoBehaviour
         if (Vector3.Distance(transform.position, destination) <= span)
             ChooseNewDestination();
 
-        transform.position = Vector3.MoveTowards(transform.position, destination, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, destination, speed * Time.deltaTime * (Pause ? 0f : speedPercentage));
     }
     private void ChooseNewDestination()
     {

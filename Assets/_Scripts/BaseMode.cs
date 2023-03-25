@@ -5,24 +5,24 @@ using UnityEngine;
 
 public class BaseMode : GameMode
 {
-    [SerializeField] private Partition partition;
     [SerializeField] private Level[] levels;
 
-    public override void LaunchGame()
+    public override void LaunchNextLevel()
     {
-        base.LaunchGame();
+        if (currentLevel >= levels.Length)
+        {
+            GameManager.Instance.Win();
+            return;
+        }
 
-        bool[] level = new[] { levels[0].Rhi, levels[0].No, levels[0].Ce, levels[0].Ros };
+        currentLevel++;
+        Debug.Log($"Launch level {currentLevel}");
+        bool[] level = { levels[currentLevel].Rhi, levels[currentLevel].No, levels[currentLevel].Ce, levels[currentLevel].Ros };
 
         partition.UpdateAvailableButtons(level);
-    }
-
-    private void Update()
-    {
-        while (isPlaying)
-        {
-            
-        }
+        partition.GenerateRandomScript();
+        director.Play();
+        isPlaying = true;
     }
 }
 

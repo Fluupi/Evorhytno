@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private bool startToggle;
     [SerializeField] private bool pauseToggle;
+    [SerializeField] private bool isPaused;
 
     [Header("GameMode")]
     [SerializeField] private GameMode currentGameMode;
@@ -33,6 +34,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Rhino[] rhinoLives;
 
     #region GameCycle
+    public void PrepareGame()
+    {
+        rhinoGroup.SetActive(true);
+
+        foreach (Rhino life in rhinoLives)
+            life.SetAlive(true);
+    }
 
     public void LaunchInfinityGame()
     {
@@ -50,12 +58,18 @@ public class GameManager : MonoBehaviour
         currentGameMode.LaunchGame();
     }
 
-    public void PrepareGame()
+    public void PauseToggle()
     {
-        rhinoGroup.SetActive(true);
+        isPaused = !isPaused;
+        Debug.Log($"pause {isPaused}");
 
-        foreach (Rhino life in rhinoLives)
-            life.SetAlive(true);
+        foreach (var rhino in rhinoLives)
+            rhino.Pause = !isPaused;
+
+        if(isPaused)
+            currentGameMode.Resume();
+        else
+            currentGameMode.Stop();
     }
 
     public void LooseLifePoint()
@@ -77,18 +91,36 @@ public class GameManager : MonoBehaviour
         Debug.Log("You Lost");
     }
 
+    public void Win()
+    {
+        currentGameMode.Stop();
+        Debug.Log("You Won");
+    }
+
     #endregion
 
     private void Update()
     {
-        if(currentGameMode == null)
+        if (!startToggle && !pauseToggle)
             return;
 
-        if(!startToggle || currentGameMode.IsPlaying)
-            return;
+        if (startToggle)
+        {
+            startToggle = false;
+            if (currentGameMode.IsPlaying)
+                return;
 
-        startToggle = false;
+            LaunchBaseGame();
+        }
 
-        LaunchBaseGame();
+        if (pauseToggle)
+        {
+            if(currentGameMode == null)
+                return;
+
+            pauseToggle = false;
+
+            PauseToggle();
+        }
     }
 }

@@ -11,7 +11,7 @@
                     "id": "7b6332e4-1088-44be-b5e8-5be557fd9ad8",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 },
                 {
@@ -20,7 +20,7 @@
                     "id": "d6aaee9a-8e47-4079-9199-5b56ad3415ce",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 },
                 {
@@ -29,7 +29,7 @@
                     "id": "79e8ba58-7fdd-47d7-a6ae-753537647ca3",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 },
                 {
@@ -38,7 +38,7 @@
                     "id": "686368b3-4091-4eab-bc96-83e238e78e36",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 },
                 {
@@ -47,7 +47,7 @@
                     "id": "fc539145-135a-465a-85cb-e3d841a67aa6",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 }
             ],
@@ -56,6 +56,17 @@
                     "name": "",
                     "id": "6189535b-b13d-4dfb-98fd-a1a382b706b3",
                     "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rhy",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0de532fb-c599-4413-a332-33cdc6baa676",
+                    "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -76,8 +87,30 @@
                 },
                 {
                     "name": "",
+                    "id": "7ebc462a-f352-4ae1-b115-e92be99e5b24",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "No",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "d8971039-c8a5-451d-9254-8fdc91e207de",
                     "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ce",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d664da23-6ab4-466b-a670-75eb052b4025",
+                    "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -98,8 +131,30 @@
                 },
                 {
                     "name": "",
+                    "id": "500d3848-59dc-48ba-a056-5c728d5d9961",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ros",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "c0563a74-b045-42db-8434-3b6cdf44d43e",
                     "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0de4d46d-dd90-4c56-989c-51cdfce6a353",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
