@@ -1,11 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
-using Debug = UnityEngine.Debug;
 
 public class InputManager : MonoBehaviour
 {
+    #region Singleton
+
+    private static InputManager instance;
+    public static InputManager Instance => instance;
+
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+            Destroy(gameObject);
+
+        instance = this;
+    }
+    
+    #endregion
+    
     public bool Rhi;
     public bool No;
     public bool Ce;
