@@ -98,7 +98,7 @@ public class GameManager : MonoBehaviour
     }
 
     #endregion
-
+    
     private void Update()
     {
         if (!startToggle && !pauseToggle)
@@ -112,7 +112,7 @@ public class GameManager : MonoBehaviour
 
             LaunchBaseGame();
         }
-
+        /*
         if (pauseToggle)
         {
             if(currentGameMode == null)
@@ -121,6 +121,6 @@ public class GameManager : MonoBehaviour
             pauseToggle = false;
 
             PauseToggle();
-        }
+        }*/
     }
 }

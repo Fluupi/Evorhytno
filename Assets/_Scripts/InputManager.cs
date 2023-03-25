@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using Debug = UnityEngine.Debug;
 
 public class InputManager : MonoBehaviour
 {
@@ -10,56 +11,31 @@ public class InputManager : MonoBehaviour
     public bool Ce;
     public bool Ros;
 
-    public void OnRhi()
+    private void Update()
     {
-        Debug.Log(Rhi ? "Rhi Valide" : "Rhi Non Valide", this);
-    }
-
-    public void OnNo()
-    {
-        Debug.Log(No ? "No Valide" : "No Non Valide", this);
-    }
-
-    public void OnCe()
-    {
-        Debug.Log(Ce ? "Ce Valide" : "Ce Non Valide", this);
-    }
-
-    public void OnRos()
-    {
-        Debug.Log(Rhi ? "Ce Valide" : "Ce Non Valide", this);
-    }
-
-    public void Callback(InputAction.CallbackContext context)
-    {
-        Debug.Log(context.action.name, this);
-
-        switch (context.action.name)
+        if (Input.GetButtonDown("Rhi"))
         {
-            case "Rhi":
-                Debug.Log(Rhi ? "Rhi Valide" : "Rhi Non Valide", this);
-                break;
-            case "No":
-                if (No)
-                    Debug.Log("No Valide", this);
-                else
-                    Debug.Log("No Non Valide", this);
-                break;
-            case "Ce":
-                if (Ce)
-                    Debug.Log("Ce Valide", this);
-                else
-                    Debug.Log("Ce Non Valide", this);
-                break;
-            case "Ros":
-                if (Ros)
-                    Debug.Log("Ros Valide", this);
-                else
-                    Debug.Log("Ros Non Valide", this);
-                break;
-            default:
-                GameManager.Instance.PauseToggle();
-                break;
+            Debug.Log(Rhi ? "Rhi Valide" : "Rhi Non Valide", this);
+        }
+
+        if (Input.GetButtonDown("No"))
+        {
+            Debug.Log(No ? "No Valide" : "No Non Valide", this);
+        }
+
+        if (Input.GetButtonDown("Ce"))
+        {
+            Debug.Log(Ce ? "Ce Valide" : "Ce Non Valide", this);
+        }
+
+        if (Input.GetButtonDown("Ros"))
+        {
+            Debug.Log(Ros ? "Ros Valide" : "Ros Non Valide", this);
+        }
+
+        if (Input.GetButtonDown("Pause"))
+        {
+            //GameManager.Instance.PauseToggle();
         }
     }
 }

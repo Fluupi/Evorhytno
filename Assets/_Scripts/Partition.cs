@@ -28,8 +28,8 @@ public class Partition : MonoBehaviour
 
 public enum BtnValue
 {
-    Triangle,
-    Square,
-    Cross,
-    Circle
+    Rhi,
+    No,
+    Ce,
+    Ros
 }
