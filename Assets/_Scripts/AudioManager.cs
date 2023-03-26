@@ -15,9 +15,14 @@ public class AudioManager : MonoBehaviour
     [Header("Rhinoceros Sounds")]
     [SerializeField] private AudioClip[] rhinocerosAudioClips;
 
+    public static double BaseTime;
+
     public void PlayScheduled(ProcessedPartition processedPartition)
     {
         Debug.Log("Start PlayScheduled...");
+        
+        BaseTime = AudioSettings.dspTime;
+        
         GameManager gm = GameManager.Instance;
         gm.Data.SwitchOption();
 
@@ -27,7 +32,7 @@ public class AudioManager : MonoBehaviour
         OnPlay.Invoke(processedPartition);
 
         //before teach
-        double currentTime = AudioSettings.dspTime+processedPartition.BeforeTeachTime;
+        double currentTime = BaseTime+processedPartition.BeforeTeachTime;
 
         //teach
         for (int i = 0; i < processedPartition.Times.Count; i++) {

@@ -16,35 +16,30 @@ public class InputManager : MonoBehaviour
 
         instance = this;
     }
-    
+
     #endregion
-    
+
     public bool[] btnValue;
 
     private void Update()
     {
-        if (Input.GetButtonDown("Rhi"))
-        {
+        if (Input.GetButtonDown("Rhi")) {
             Debug.Log(btnValue[0] ? "Rhi Valide" : "Rhi Non Valide", this);
         }
 
-        if (Input.GetButtonDown("No"))
-        {
+        if (Input.GetButtonDown("No")) {
             Debug.Log(btnValue[1] ? "No Valide" : "No Non Valide", this);
         }
 
-        if (Input.GetButtonDown("Ce"))
-        {
+        if (Input.GetButtonDown("Ce")) {
             Debug.Log(btnValue[2] ? "Ce Valide" : "Ce Non Valide", this);
         }
 
-        if (Input.GetButtonDown("Ros"))
-        {
+        if (Input.GetButtonDown("Ros")) {
             Debug.Log(btnValue[3] ? "Ros Valide" : "Ros Non Valide", this);
         }
 
-        if (Input.GetButtonDown("Pause"))
-        {
+        if (Input.GetButtonDown("Pause")) {
             //GameManager.Instance.PauseToggle();
         }
     }
@@ -57,11 +52,10 @@ public class InputManager : MonoBehaviour
     public IEnumerator ProcessListening(ProcessedPartition processedPartition)
     {
         //before teach
-        float currentTime = processedPartition.BeforeTeachTime;
+        float currentTime = (float)AudioManager.BaseTime+processedPartition.BeforeTeachTime;
 
         //teach
-        for (int i = 0; i < processedPartition.Times.Count; i++)
-        {
+        for (int i = 0; i < processedPartition.Times.Count; i++) {
             currentTime += processedPartition.Times[i];
 
             if (i >= processedPartition.BtwTimes.Count)
@@ -77,8 +71,7 @@ public class InputManager : MonoBehaviour
         currentTime = 0f;
 
         //listen
-        for (int i = 0; i < processedPartition.Times.Count; i++)
-        {
+        for (int i = 0; i < processedPartition.Times.Count; i++) {
             //allow correct input
             btnValue[(int)processedPartition.BtnScript[i]] = true;
 
