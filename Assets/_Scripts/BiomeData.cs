@@ -24,9 +24,10 @@ public struct BiOption
 {
     public Biome Biome;
 
+    public GameObject Scene;
+
     public AudioClip AmbiantAudioClip;
 
     public Sprite RhinoSprite;
-
     public Vector3 RhinoScale;
 }

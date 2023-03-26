@@ -28,9 +28,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameMode currentGameMode;
     [Space]
     [SerializeField] private GameMode baseGameMode;
-    [SerializeField] private GameMode infiniteGameMode;
     [Space] public BtnValue[] CutDino = { BtnValue.Rhi, BtnValue.No, BtnValue.Ce, BtnValue.Ros };
     public BiomeData Data;
+    public BiOption CurrentOption;
 
     [Header("Rhino refs")]
     [SerializeField] private GameObject rhinoGroup;
@@ -47,14 +47,6 @@ public class GameManager : MonoBehaviour
             life.SetAlive(true);
     }
 
-    public void LaunchInfinityGame()
-    {
-        PrepareGame();
-
-        currentGameMode = infiniteGameMode;
-        currentGameMode.LaunchGame();
-    }
-
     public void LaunchBaseGame()
     {
         PrepareGame();
@@ -62,20 +54,7 @@ public class GameManager : MonoBehaviour
         currentGameMode = baseGameMode;
         currentGameMode.LaunchGame();
     }
-
-    public void PauseToggle()
-    {
-        isPaused = !isPaused;
-        Debug.Log($"pause {isPaused}");
-
-        foreach (var rhino in rhinoLives)
-            rhino.Pause = !isPaused;
-
-        if(isPaused)
-            currentGameMode.Resume();
-        else
-            currentGameMode.Stop();
-    }
+    
 
     public void LooseLifePoint()
     {
@@ -107,11 +86,19 @@ public class GameManager : MonoBehaviour
     public void UpdateData(BiOption data)
     {
         currentGameMode.UpdateData(data);
+
+        CurrentOption.Scene.SetActive(false);
+        CurrentOption = data;
+    }
+
+    private void Start()
+    {
+        LaunchBaseGame();
     }
 
     private void Update()
     {
-        if (!startToggle && !pauseToggle)
+        /*if (!startToggle && !pauseToggle)
             return;
 
         if (startToggle)
@@ -122,7 +109,7 @@ public class GameManager : MonoBehaviour
 
             LaunchBaseGame();
         }
-        /*
+        
         if (pauseToggle)
         {
             if(currentGameMode == null)
