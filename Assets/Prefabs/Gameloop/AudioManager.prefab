@@ -45,7 +45,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -173,7 +173,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -301,7 +301,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -429,7 +429,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -557,7 +557,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -719,7 +719,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -881,7 +881,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -1009,7 +1009,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 29890a85874f41642b24f082bdc6243e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -1158,13 +1158,8 @@ MonoBehaviour:
         m_CallState: 2
   ambianceAudioSource: {fileID: 2654283722163539163}
   uiAudioSource: {fileID: 2654283721355818953}
-  btnAudioSources:
-  - {fileID: 2654283720621904446}
-  - {fileID: 2654283720143698828}
-  - {fileID: 2654283720975860173}
-  - {fileID: 2654283722048972680}
-  - {fileID: 2654283720956656403}
-  - {fileID: 2654283721263980496}
+  btnAudioSourcesTeach: []
+  btnAudioSourcesListen: []
   rhinocerosAudioClips:
   - {fileID: 8300000, guid: d7cbcb25215e82746976ab0064466173, type: 3}
   - {fileID: 8300000, guid: 818cc5919088ea343b0ea002f4570a1d, type: 3}

@@ -74,10 +74,10 @@ public class BuildSettings : ScriptableObject, IAssetBookmark
             _buildTarget.ToString());
 
         ProcessStartInfo startInfo = new();
-        startInfo.CreateNoWindow = true;
+        startInfo.CreateNoWindow = false;
         startInfo.UseShellExecute = true;
         startInfo.FileName = butlerPath;
-        startInfo.WindowStyle = ProcessWindowStyle.Normal;
+        startInfo.WindowStyle = ProcessWindowStyle.Hidden;
 
         startInfo.Arguments =
             $@"push {buildPath} {_itchUserName}/{_itchProjectName}:{_itchChannel} --userversion {_buildVersion}";

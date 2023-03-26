@@ -402,7 +402,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _vfxHit: {fileID: 1539857226133384333}
-  _vfxDeath: {fileID: 0}
   _vfxMissed: {fileID: 7997495897645455327}
   _wordFadeInDuration: 0.1
   _wordFadeInEase: 9
@@ -1080,6 +1079,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: VFX_Missed
       objectReference: {fileID: 0}
+    - target: {fileID: 3844890661299885884, guid: 5dd27e39f12b7074f87b865a9ca1b9c6, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3845041293669120762, guid: 5dd27e39f12b7074f87b865a9ca1b9c6, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3845125938117234680, guid: 5dd27e39f12b7074f87b865a9ca1b9c6, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3845303533447376580, guid: 5dd27e39f12b7074f87b865a9ca1b9c6, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3845341841637864616, guid: 5dd27e39f12b7074f87b865a9ca1b9c6, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4006204230804988626, guid: 5dd27e39f12b7074f87b865a9ca1b9c6, type: 3}
       propertyPath: playOnAwake
       value: 0
@@ -1159,6 +1178,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2430537091012614884, guid: 9689ba9085687e144be3b76735fdcbd2, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2575878540498624816, guid: 9689ba9085687e144be3b76735fdcbd2, type: 3}
       propertyPath: playOnAwake
       value: 0
@@ -1183,9 +1206,17 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2575878540498624975, guid: 9689ba9085687e144be3b76735fdcbd2, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2958997781486087160, guid: 9689ba9085687e144be3b76735fdcbd2, type: 3}
       propertyPath: m_SortingLayer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958997781486087161, guid: 9689ba9085687e144be3b76735fdcbd2, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2958997781486087162, guid: 9689ba9085687e144be3b76735fdcbd2, type: 3}
       propertyPath: m_LocalScale.x
@@ -1283,9 +1314,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: VFX_Hit
       objectReference: {fileID: 0}
+    - target: {fileID: 5665955679768281114, guid: 9689ba9085687e144be3b76735fdcbd2, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5665955679768281115, guid: 9689ba9085687e144be3b76735fdcbd2, type: 3}
       propertyPath: m_SortingLayer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5665955680032025636, guid: 9689ba9085687e144be3b76735fdcbd2, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5665955680032025637, guid: 9689ba9085687e144be3b76735fdcbd2, type: 3}
       propertyPath: m_LocalScale.x

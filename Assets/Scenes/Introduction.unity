@@ -157,8 +157,8 @@ MonoBehaviour:
   - {fileID: 1029466963}
   - {fileID: 744843973}
   _gameScene:
-    sceneAsset: {fileID: 102900000, guid: d28e57753bd278843984ad4ecf3cc01b, type: 3}
-    scenePath: Assets/Scenes/Test.unity
+    sceneAsset: {fileID: 102900000, guid: 9fc0d4010bbf28b4594072e72b8655ab, type: 3}
+    scenePath: Assets/Scenes/BuildScene.unity
 --- !u!4 &589304633
 Transform:
   m_ObjectHideFlags: 0

@@ -32,21 +32,32 @@ public class InputManager : MonoBehaviour
 
     public bool[] btnValue;
 
+    private bool _inputOk;
+
     private void Update()
     {
+        if (_inputOk) {
+            return;
+        }
+        
         if (Input.GetButtonDown("Rhi")) {
             if (btnValue[0]) {
+                _inputOk = true;
                 _vfxController.PlayVFXHit(BtnValue.Rhi);
             } else {
                 _vfxController.PlayVFXMissed();
+                GameManager.Instance.LooseLifePoint();
             }
         }
+        
 
         if (Input.GetButtonDown("No")) {
             if (btnValue[1]) {
+                _inputOk = true;
                 _vfxController.PlayVFXHit(BtnValue.No);
             } else {
                 _vfxController.PlayVFXMissed();
+                GameManager.Instance.LooseLifePoint();
             }
         }
 
@@ -55,19 +66,18 @@ public class InputManager : MonoBehaviour
                 _vfxController.PlayVFXHit(BtnValue.Ce);
             } else {
                 _vfxController.PlayVFXMissed();
+                GameManager.Instance.LooseLifePoint();
             }
         }
 
         if (Input.GetButtonDown("Ros")) {
             if (btnValue[3]) {
+                _inputOk = true;
                 _vfxController.PlayVFXHit(BtnValue.Ros);
             } else {
                 _vfxController.PlayVFXMissed();
+                GameManager.Instance.LooseLifePoint();
             }
-        }
-
-        if (Input.GetButtonDown("Pause")) {
-            //GameManager.Instance.PauseToggle();
         }
     }
 
@@ -121,6 +131,12 @@ public class InputManager : MonoBehaviour
             //reset input
             btnValue[(int)processedPartition.BtnScript[i]] = false;
             Debug.Log($"{processedPartition.BtnScript[i]} end");
+
+            if (!_inputOk) {
+                GameManager.Instance.LooseLifePoint();
+                
+            }
+            _inputOk = false;
 
             if (i >= processedPartition.Times.Count - 1)
                 break;

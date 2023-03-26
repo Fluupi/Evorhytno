@@ -16,14 +16,6 @@ public class UIButtonController : MonoBehaviour
     [SerializeField]
     private float _timerSpriteMaxScale = 5;
 
-    [Space]
-
-    [SerializeField]
-    private ParticleSystem _vfxGood;
-
-    [SerializeField]
-    private ParticleSystem _vfxBad;
-
     private RectTransform _timerSpriteRect;
     private CanvasGroup _timerSpriteGroup;
 
