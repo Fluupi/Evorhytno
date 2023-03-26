@@ -9,33 +9,38 @@ public class AudioManager : MonoBehaviour
     [Header("Audio Source Refs")]
     [SerializeField] private AudioSource ambianceAudioSource;
     [SerializeField] private AudioSource uiAudioSource;
-    [SerializeField] private List<AudioSource> btnAudioSources;
+    [SerializeField] private List<AudioSource> btnAudioSourcesTeach;
+    [SerializeField] private List<AudioSource> btnAudioSourcesListen;
 
     [Header("Rhinoceros Sounds")]
     [SerializeField] private AudioClip[] rhinocerosAudioClips;
 
+    public static double BaseTime;
+
     public void PlayScheduled(ProcessedPartition processedPartition)
     {
         Debug.Log("Start PlayScheduled...");
+        
+        BaseTime = AudioSettings.dspTime;
+        
         GameManager gm = GameManager.Instance;
         gm.Data.SwitchOption();
 
         PrepareSounds(processedPartition.BtnScript);
 
-        int audioSourceIndex = 0;
-
         ambianceAudioSource.Play();
         OnPlay.Invoke(processedPartition);
 
         //before teach
-        double currentTime = processedPartition.BeforeTeachTime;
+        double currentTime = BaseTime+processedPartition.BeforeTeachTime;
 
         //teach
-        for (int i = 0; i < processedPartition.Times.Count; i++)
-        {
-            currentTime += processedPartition.Times[i];
-            btnAudioSources[audioSourceIndex].Play();//Scheduled(currentTime);
-            audioSourceIndex++;
+        for (int i = 0; i < processedPartition.Times.Count; i++) {
+            currentTime += processedPartition.Times[i] ;
+            btnAudioSourcesTeach[i].PlayScheduled(currentTime);
+
+            Debug.Log(
+                $"Scheduled {btnAudioSourcesTeach[i].name} to play {btnAudioSourcesTeach[i].clip.name} at {currentTime - BaseTime}");
 
             if (i >= processedPartition.BtwTimes.Count)
                 continue;
@@ -47,35 +52,35 @@ public class AudioManager : MonoBehaviour
         currentTime += processedPartition.BtwTeachAndListenTime;
 
         //listen
-        for (int i = 0; i < processedPartition.Times.Count; i++)
-        {
+        for (int i = 0; i < processedPartition.Times.Count; i++) {
             currentTime += processedPartition.Times[i];
-            btnAudioSources[audioSourceIndex].Play();//Scheduled(currentTime);
-            audioSourceIndex++;
-
+            btnAudioSourcesListen[i].PlayScheduled(currentTime);
+        
+            Debug.Log(
+                $"Scheduled {btnAudioSourcesListen[i].name} to play {btnAudioSourcesListen[i].clip.name} at {currentTime - BaseTime}");
+        
             if (i >= processedPartition.BtwTimes.Count)
                 continue;
-
+        
             currentTime += processedPartition.BtwTimes[i];
         }
+
         Debug.Log("End PlayScheduled...");
     }
 
     private void PrepareSounds(List<BtnValue> processedPartitionBtnScript)
     {
-        for(int i=0; i<3; i++)
-        {
-            for (int j = 0; j < 2; j++)
-            {
-                btnAudioSources[i * 2 + j].clip = rhinocerosAudioClips[(int)processedPartitionBtnScript[i]];
-            }
+        for (int i = 0; i < processedPartitionBtnScript.Count; i++) {
+            var clip = rhinocerosAudioClips[(int)processedPartitionBtnScript[i]];
+            btnAudioSourcesTeach[i].clip = clip;
+            btnAudioSourcesListen[i].clip = clip;
         }
     }
 
     public void Stop()
     {
-        foreach (var audioSource in btnAudioSources)
-            audioSource.Stop();
+        // foreach (var audioSource in btnAudioSources)
+        //     audioSource.Stop();
     }
 
     public void UpdateAmbiant(AudioClip dataAmbiantAudioClip)

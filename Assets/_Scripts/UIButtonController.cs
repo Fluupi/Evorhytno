@@ -44,16 +44,6 @@ public class UIButtonController : MonoBehaviour
         });
     }
 
-    public void PlayVFXGood()
-    {
-        _vfxGood.Play();
-    }
-
-    public void PlayVFXBad()
-    {
-        _vfxBad.Play();
-    }
-
     [ContextMenu("Test")]
     private void Test()
     {
