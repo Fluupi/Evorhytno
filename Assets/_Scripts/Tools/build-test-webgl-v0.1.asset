@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a560f2696e3d746478cf2a8387755b35, type: 3}
+  m_Name: build-test-webgl-v0.1
+  m_EditorClassIdentifier: 
+  _buildName: test
+  _buildVersion: v1.1.2
+  _buildTarget: 20
+  _buildTargetGroup: 13
+  _buildOptions: 0
+  _isDevelopmentBuild: 0
+  _buildDescription: V1.1.2
+  _itchUserName: marsheleene
+  _itchProjectName: SGJGrenoble2023
+  _itchChannel: web
+  _scenesInBuild:
+  - sceneAsset: {fileID: 102900000, guid: 73433f4cec6520d41adeee8719554b73, type: 3}
+    scenePath: Assets/00_Scenes/Game/Bootstrap.unity
+  - sceneAsset: {fileID: 102900000, guid: 1283e1ea03782fd4a9a5b08c11bf468f, type: 3}
+    scenePath: Assets/00_Scenes/Game/MainMenu.unity
+  - sceneAsset: {fileID: 102900000, guid: cb80765f15c50304c940b2892d4b2936, type: 3}
+    scenePath: Assets/00_Scenes/Game/Game.unity

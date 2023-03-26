@@ -37,7 +37,7 @@ public class Partition : MonoBehaviour
         }
         
         //before teach Time
-        processedPartition.BeforeTeachTime =
+        processedPartition.BeforeTeachTime = 
             Random.Range(beforeTeachTimeBorders.Min, beforeTeachTimeBorders.Max);
 
         //teachTimes

@@ -236,6 +236,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b0d39b90daf4e4469c2e1d1dd32e913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ProcessedPartition:
+    BtnScript: 
+    BeforeTeachTime: 0
+    Times: []
+    BtwTimes: []
+    BtwTeachAndListenTime: 0
   beforeTeachTimeBorders:
     Min: 2
     Max: 5
@@ -277,10 +283,11 @@ MonoBehaviour:
         m_CallState: 2
   ambianceAudioSource: {fileID: 58634066}
   uiAudioSource: {fileID: 861246528}
-  btnAudioSources:
+  btnAudioSourcesTeach:
   - {fileID: 1729311159}
   - {fileID: 2073171973}
   - {fileID: 1242047044}
+  btnAudioSourcesListen:
   - {fileID: 167953409}
   - {fileID: 1265588378}
   - {fileID: 954006617}
@@ -334,11 +341,11 @@ AudioSource:
   m_GameObject: {fileID: 58634065}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -1855035022936199433, guid: 81e806b7eba1e7c4dbe0bb32c49d0e03, type: 2}
   m_audioClip: {fileID: 8300000, guid: 29890a85874f41642b24f082bdc6243e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -477,11 +484,11 @@ AudioSource:
   m_GameObject: {fileID: 167953407}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4548802526835460673, guid: 81e806b7eba1e7c4dbe0bb32c49d0e03, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -949,11 +956,11 @@ AudioSource:
   m_GameObject: {fileID: 861246527}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7438917420129781145, guid: 81e806b7eba1e7c4dbe0bb32c49d0e03, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -1126,11 +1133,11 @@ AudioSource:
   m_GameObject: {fileID: 954006615}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4548802526835460673, guid: 81e806b7eba1e7c4dbe0bb32c49d0e03, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -1338,11 +1345,11 @@ AudioSource:
   m_GameObject: {fileID: 1242047042}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4548802526835460673, guid: 81e806b7eba1e7c4dbe0bb32c49d0e03, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -1466,11 +1473,11 @@ AudioSource:
   m_GameObject: {fileID: 1265588376}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4548802526835460673, guid: 81e806b7eba1e7c4dbe0bb32c49d0e03, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -1802,11 +1809,11 @@ AudioSource:
   m_GameObject: {fileID: 1729311157}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4548802526835460673, guid: 81e806b7eba1e7c4dbe0bb32c49d0e03, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -2069,11 +2076,11 @@ AudioSource:
   m_GameObject: {fileID: 2073171971}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4548802526835460673, guid: 81e806b7eba1e7c4dbe0bb32c49d0e03, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -2178,6 +2185,18 @@ PrefabInstance:
     - target: {fileID: 6627059011068857611, guid: b5042a8624c646e4dafa3ae8347ae16a, type: 3}
       propertyPath: biomeScript.Array.size
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6627059011068857611, guid: b5042a8624c646e4dafa3ae8347ae16a, type: 3}
+      propertyPath: levels.Array.data[0].Ce
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6627059011068857611, guid: b5042a8624c646e4dafa3ae8347ae16a, type: 3}
+      propertyPath: levels.Array.data[0].No
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6627059011068857611, guid: b5042a8624c646e4dafa3ae8347ae16a, type: 3}
+      propertyPath: levels.Array.data[0].Ros
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6627059011068857611, guid: b5042a8624c646e4dafa3ae8347ae16a, type: 3}
       propertyPath: biomeScript.Array.data[1]
