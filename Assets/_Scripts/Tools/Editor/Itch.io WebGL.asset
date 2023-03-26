@@ -29,3 +29,7 @@ MonoBehaviour:
     scenePath: Assets/Scenes/Introduction.unity
   - sceneAsset: {fileID: 102900000, guid: 9fc0d4010bbf28b4594072e72b8655ab, type: 3}
     scenePath: Assets/Scenes/BuildScene.unity
+  - sceneAsset: {fileID: 102900000, guid: 181fd6af38f777649a3732f1d4f99a60, type: 3}
+    scenePath: Assets/Scenes/EndScreen Lose.unity
+  - sceneAsset: {fileID: 102900000, guid: cb5d05b8728be0446a0055c5537e1fca, type: 3}
+    scenePath: Assets/Scenes/EndScreen Win.unity

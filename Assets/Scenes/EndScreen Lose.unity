@@ -541,8 +541,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Le peuple des rhinoceros est sauve ! Ils ont traverse les ages grace a
-    vous et le Protecteur des rhinoceros vous en remercie.
+  m_text: "Vous n\u2019avez pas suivi les ordres et etes desormais responsables de
+    l\u2019extinction des rhinoceros dans le monde. Au moins les dinosaures ont eu
+    une mort digne\u2026"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 495ce905ef368934681f7d8563c8b5b3, type: 2}
   m_sharedMaterial: {fileID: -4961923411655074547, guid: 495ce905ef368934681f7d8563c8b5b3, type: 2}
