@@ -59,4 +59,9 @@ public class Rhino : MonoBehaviour
         Vector2 nextPos = Random.insideUnitCircle * moveArea.lossyScale.x * .5f;
         destination = new Vector3(nextPos.x, 0f, nextPos.y);
     }
+
+    public void LoadData(Vector3 dataRhinoScale, Material dataRhinoMat)
+    {
+        aliveGameObject.GetComponent<MeshRenderer>().materials[0] = dataRhinoMat;
+    }
 }

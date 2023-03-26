@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
@@ -25,6 +26,11 @@ public class GameManager : MonoBehaviour
     }
     
     #endregion
+
+    public UnityEvent OnForetAppear;
+    public UnityEvent OnSteppeAppear;
+    public UnityEvent OnRiviereAppear;
+    public UnityEvent OnGlacierAppear;
 
     [Header("Debug")]
     [SerializeField] private bool startToggle;
@@ -68,7 +74,15 @@ public class GameManager : MonoBehaviour
         int i = 0;
 
         while (!rhinoLives[i].IsAlive)
+        {
+            if (i < rhinoLives.Length)
+            {
+                LooseGame();
+                return;
+            }
+            
             i++;
+        }
 
         rhinoLives[i].SetAlive(false);
 
@@ -92,12 +106,44 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-    public void UpdateData(BiOption data)
+    public void UpdateData(Biome biome)
     {
-        currentGameMode.UpdateData(data);
+        if(CurrentOption.Scene != null)
+            CurrentOption.Scene.SetActive(false);
 
-        CurrentOption.Scene.SetActive(false);
-        CurrentOption = data;
+        CurrentBiome = biome;
+        Data.SwitchOption();
+
+        switch (CurrentBiome)
+        {
+            case Biome.Foret:
+                OnForetAppear.Invoke();
+                break;
+            case Biome.Steppe:
+                OnSteppeAppear.Invoke();
+                break;
+            case Biome.Riviere:
+                OnRiviereAppear.Invoke();
+                break;
+            default:
+                OnGlacierAppear.Invoke();
+                break;
+        }
+
+        if(CurrentOption.Scene == null)
+            Debug.LogError("wtf");
+        else
+            CurrentOption.Scene.SetActive(true);
+
+        foreach (var rhino in rhinoLives)
+            rhino.LoadData(CurrentOption.RhinoScale, CurrentOption.RhinoMat);
+
+        currentGameMode.UpdateData(CurrentOption);
+    }
+
+    public void NextStep()
+    {
+        currentGameMode.NextStep();
     }
 
     private void Start()

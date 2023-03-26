@@ -6,16 +6,14 @@ public class BiomeData : MonoBehaviour
 {
     [SerializeField] private BiOption[] options;
 
-    public UnityEvent<BiOption> OnSwitch;
-
     public void SwitchOption()
     {
         int i = 0;
 
         while (options[i].Biome != GameManager.Instance.CurrentBiome)
             i++;
-        
-        OnSwitch.Invoke(options[i]);
+
+        GameManager.Instance.CurrentOption = options[i];
     }
 }
 
@@ -28,6 +26,6 @@ public struct BiOption
 
     public AudioClip AmbiantAudioClip;
 
-    public Sprite RhinoSprite;
+    public Material RhinoMat;
     public Vector3 RhinoScale;
 }

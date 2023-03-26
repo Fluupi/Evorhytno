@@ -11,6 +11,8 @@ public abstract class GameMode : MonoBehaviour
     [SerializeField] protected float gameSpeed;
     [SerializeField] protected bool isPlaying;
 
+    protected int progress;
+
     public bool IsPlaying => isPlaying;
 
     public abstract void ChooseBiome();
@@ -37,6 +39,19 @@ public abstract class GameMode : MonoBehaviour
     public void UpdateData(BiOption data)
     {
         AmbiantMusicController.Instance.PlayAmbiant(data.AmbiantAudioClip);
+    }
+
+    public void PlayStep()
+    {
+        audioManager.PlayScheduled(partition.GenerateRandomScript());
+    }
+
+    public void NextStep()
+    {
+        if(++progress < 4)
+            PlayStep();
+        else
+            LaunchNextLevel();
     }
 }
 

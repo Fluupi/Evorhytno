@@ -32,6 +32,7 @@ public class InputManager : MonoBehaviour
 
     public bool[] btnValue;
 
+    private int progress;
     private bool _inputOk;
 
     private void Update()
@@ -49,7 +50,6 @@ public class InputManager : MonoBehaviour
                 GameManager.Instance.LooseLifePoint();
             }
         }
-        
 
         if (Input.GetButtonDown("No")) {
             if (btnValue[1]) {
@@ -88,6 +88,8 @@ public class InputManager : MonoBehaviour
 
     public IEnumerator ProcessListening(ProcessedPartition processedPartition)
     {
+        progress = 0;
+
         //before teach
         float currentTime = processedPartition.BeforeTeachTime;
 
@@ -134,9 +136,12 @@ public class InputManager : MonoBehaviour
 
             if (!_inputOk) {
                 GameManager.Instance.LooseLifePoint();
-                
             }
-            _inputOk = false;
+            else
+            {
+                _inputOk = false;
+            }
+            
 
             if (i >= processedPartition.Times.Count - 1)
                 break;
@@ -152,5 +157,7 @@ public class InputManager : MonoBehaviour
             
             yield return new WaitForSeconds(processedPartition.BtwTimes[i]);
         }
+
+        GameManager.Instance.NextStep();
     }
 }

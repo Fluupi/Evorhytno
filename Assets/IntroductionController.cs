@@ -49,6 +49,7 @@ public class IntroductionController : MonoBehaviour
 
         if (_currentIndex >= _texts.Length) {
             LoadGameScene();
+            return;
         }
         FadeIn(_texts[_currentIndex]);
     }
