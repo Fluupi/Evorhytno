@@ -22,12 +22,13 @@ public class BaseMode : GameMode
         }
 
         currentLevel++;
+        progress = 0;
         Debug.Log($"Launching level {currentLevel}...");
         ChooseBiome();
         bool[] level = { levels[currentLevel].Rhi, levels[currentLevel].No, levels[currentLevel].Ce, levels[currentLevel].Ros };
 
         partition.UpdateAvailableButtons(level);
-        audioManager.PlayScheduled(partition.GenerateRandomScript());
+        PlayStep();
         isPlaying = true;
         Debug.Log($"Level {currentLevel} launched");
     }

@@ -6,8 +6,6 @@ public class BiomeData : MonoBehaviour
 {
     [SerializeField] private BiOption[] options;
 
-    public UnityEvent<BiOption> OnSwitch;
-
     public void SwitchOption()
     {
         int i = 0;

@@ -67,7 +67,15 @@ public class GameManager : MonoBehaviour
         int i = 0;
 
         while (!rhinoLives[i].IsAlive)
+        {
+            if (i < rhinoLives.Length)
+            {
+                LooseGame();
+                return;
+            }
+            
             i++;
+        }
 
         rhinoLives[i].SetAlive(false);
 
@@ -95,7 +103,6 @@ public class GameManager : MonoBehaviour
             CurrentOption.Scene.SetActive(false);
 
         CurrentBiome = biome;
-
         Data.SwitchOption();
 
         switch (CurrentBiome)
@@ -114,12 +121,20 @@ public class GameManager : MonoBehaviour
                 break;
         }
 
-        CurrentOption.Scene.SetActive(true);
+        if(CurrentOption.Scene == null)
+            Debug.LogError("wtf");
+        else
+            CurrentOption.Scene.SetActive(true);
 
         foreach (var rhino in rhinoLives)
             rhino.LoadData(CurrentOption.RhinoScale, CurrentOption.RhinoMat);
 
         currentGameMode.UpdateData(CurrentOption);
+    }
+
+    public void NextStep()
+    {
+        currentGameMode.NextStep();
     }
 
     private void Start()
