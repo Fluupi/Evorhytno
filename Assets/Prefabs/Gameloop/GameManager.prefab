@@ -44,10 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6532b74d74ca2d46b6a0ac84be3f611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioManager: {fileID: 0}
   currentLevel: 0
   partition: {fileID: 0}
   gameSpeed: 0
   isPlaying: 0
+  biomeScript: 
   levels:
   - Rhi: 1
     No: 0
@@ -65,54 +67,6 @@ MonoBehaviour:
     No: 1
     Ce: 1
     Ros: 1
---- !u!1 &6627059011158875015
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6627059011158875014}
-  - component: {fileID: 6627059011158875033}
-  m_Layer: 0
-  m_Name: InfiniteGameMode
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6627059011158875014
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6627059011158875015}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6627059012753982325}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6627059011158875033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6627059011158875015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33aa5acc63722ad41a595e09fcafe718, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentLevel: 0
-  partition: {fileID: 0}
-  gameSpeed: 0
-  isPlaying: 0
 --- !u!1 &6627059012753982322
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,7 +97,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6627059011068857608}
-  - {fileID: 6627059011158875014}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -164,10 +117,17 @@ MonoBehaviour:
   isPaused: 0
   currentGameMode: {fileID: 6627059011068857611}
   baseGameMode: {fileID: 6627059011068857611}
-  infiniteGameMode: {fileID: 6627059011158875033}
-  audioManager: {fileID: 0}
+  CutDino: 00000000010000000200000003000000
+  Data: {fileID: 0}
+  CurrentOption:
+    Biome: 0
+    Scene: {fileID: 0}
+    AmbiantAudioClip: {fileID: 0}
+    RhinoSprite: {fileID: 0}
+    RhinoScale: {x: 0, y: 0, z: 0}
   rhinoGroup: {fileID: 0}
   rhinoLives:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  CurrentBiome: 0
