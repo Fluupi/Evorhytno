@@ -1,6 +1,5 @@
 using UnityEngine;
 using DG.Tweening;
-using SGJGrenoble2023;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 

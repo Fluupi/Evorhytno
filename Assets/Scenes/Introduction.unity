@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -340,7 +340,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Pour cela, l\u2019Esprit Protecteur des rhinoceros a besoin de vous !
     Transmettez ses ordres rythmiques pour permettre a son peuple d\u2019evoluer
-    \xE0 travers les ages !"
+    a travers les ages !"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 495ce905ef368934681f7d8563c8b5b3, type: 2}
   m_sharedMaterial: {fileID: -4961923411655074547, guid: 495ce905ef368934681f7d8563c8b5b3, type: 2}

@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/SampleScene_gaia.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Introduction.unity
+    guid: 280970c38928f6543a34b4e0858ead2f
+  - enabled: 1
+    path: Assets/Scenes/Test.unity
+    guid: d28e57753bd278843984ad4ecf3cc01b
+  - enabled: 1
+    path: Assets/Scenes/TitleScreen.unity
+    guid: d977d720a8fbdea4f99a342ebb1b3c27
   m_configObjects: {}

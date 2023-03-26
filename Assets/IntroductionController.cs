@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using DG.Tweening;
-using SGJGrenoble2023;
 using UnityEngine.SceneManagement;
 
 public class IntroductionController : MonoBehaviour
