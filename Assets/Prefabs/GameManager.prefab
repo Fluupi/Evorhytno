@@ -45,8 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: 0
-  director: {fileID: 0}
-  partition: {fileID: 6627059012753982327}
+  partition: {fileID: 0}
   gameSpeed: 0
   isPlaying: 0
   levels:
@@ -111,8 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: 0
-  director: {fileID: 0}
-  partition: {fileID: 6627059012753982327}
+  partition: {fileID: 0}
   gameSpeed: 0
   isPlaying: 0
 --- !u!1 &6627059012753982322
@@ -125,7 +123,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6627059012753982325}
   - component: {fileID: 6627059012753982324}
-  - component: {fileID: 6627059012753982327}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -168,21 +165,9 @@ MonoBehaviour:
   currentGameMode: {fileID: 6627059011068857611}
   baseGameMode: {fileID: 6627059011068857611}
   infiniteGameMode: {fileID: 6627059011158875033}
+  audioManager: {fileID: 0}
   rhinoGroup: {fileID: 0}
   rhinoLives:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
---- !u!114 &6627059012753982327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6627059012753982322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b0d39b90daf4e4469c2e1d1dd32e913, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _script: 

@@ -5,30 +5,45 @@ using UnityEngine.Playables;
 
 public abstract class GameMode : MonoBehaviour
 {
+    [SerializeField] protected AudioManager audioManager;
     [SerializeField] protected int currentLevel;
-    [SerializeField] protected PlayableDirector director;
     [SerializeField] protected Partition partition;
     [SerializeField] protected float gameSpeed;
     [SerializeField] protected bool isPlaying;
+
     public bool IsPlaying => isPlaying;
+
+    public abstract void ChooseBiome();
+
     public void LaunchGame()
     {
         currentLevel = -1;
         LaunchNextLevel();
     }
 
-    public virtual void LaunchNextLevel()
-    {
-
-    }
+    public abstract void LaunchNextLevel();
 
     public void Stop()
     {
         isPlaying = false;
+        audioManager.Stop();
     }
 
     public void Resume()
     {
         isPlaying = false;
     }
+
+    public void UpdateData(BiOption data)
+    {
+        audioManager.UpdateAmbiant(data.AmbiantAudioClip);
+    }
+}
+
+public enum Biome
+{
+    Foret,   //tapir
+    Steppe,  //geant
+    Riviere, //trapu
+    Glaciere //laineux
 }

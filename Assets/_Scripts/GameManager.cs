@@ -19,19 +19,24 @@ public class GameManager : MonoBehaviour
     
     #endregion
 
+    [Header("Debug")]
     [SerializeField] private bool startToggle;
     [SerializeField] private bool pauseToggle;
     [SerializeField] private bool isPaused;
 
-    [Header("GameMode")]
+    [Header("Refs")]
     [SerializeField] private GameMode currentGameMode;
     [Space]
     [SerializeField] private GameMode baseGameMode;
     [SerializeField] private GameMode infiniteGameMode;
+    [Space] public BtnValue[] CutDino = { BtnValue.Rhi, BtnValue.No, BtnValue.Ce, BtnValue.Ros };
+    public BiomeData Data;
 
     [Header("Rhino refs")]
     [SerializeField] private GameObject rhinoGroup;
     [SerializeField] private Rhino[] rhinoLives;
+
+    public Biome CurrentBiome;
 
     #region GameCycle
     public void PrepareGame()
@@ -98,7 +103,12 @@ public class GameManager : MonoBehaviour
     }
 
     #endregion
-    
+
+    public void UpdateData(BiOption data)
+    {
+        currentGameMode.UpdateData(data);
+    }
+
     private void Update()
     {
         if (!startToggle && !pauseToggle)
