@@ -43,7 +43,7 @@ public class InputManager : MonoBehaviour
         }
 
         if (Input.GetButtonDown("No")) {
-            if (btnValue[0]) {
+            if (btnValue[1]) {
                 _vfxController.PlayVFXHit(BtnValue.No);
             } else {
                 _vfxController.PlayVFXMissed();
@@ -51,7 +51,7 @@ public class InputManager : MonoBehaviour
         }
 
         if (Input.GetButtonDown("Ce")) {
-            if (btnValue[0]) {
+            if (btnValue[2]) {
                 _vfxController.PlayVFXHit(BtnValue.Ce);
             } else {
                 _vfxController.PlayVFXMissed();
@@ -59,7 +59,7 @@ public class InputManager : MonoBehaviour
         }
 
         if (Input.GetButtonDown("Ros")) {
-            if (btnValue[0]) {
+            if (btnValue[3]) {
                 _vfxController.PlayVFXHit(BtnValue.Ros);
             } else {
                 _vfxController.PlayVFXMissed();
@@ -112,7 +112,7 @@ public class InputManager : MonoBehaviour
         for (int i = 0; i < processedPartition.Times.Count; i++) {
             //allow correct input
             btnValue[(int)processedPartition.BtnScript[i]] = true;
-            Debug.Log($"{btnValue[(int)processedPartition.BtnScript[i]]} is up!");
+            Debug.Log($"{processedPartition.BtnScript[i]} is up!");
 
             // VFX
 
@@ -120,7 +120,7 @@ public class InputManager : MonoBehaviour
 
             //reset input
             btnValue[(int)processedPartition.BtnScript[i]] = false;
-            Debug.Log($"{btnValue[(int)processedPartition.BtnScript[i]]} end");
+            Debug.Log($"{processedPartition.BtnScript[i]} end");
 
             if (i >= processedPartition.Times.Count - 1)
                 break;

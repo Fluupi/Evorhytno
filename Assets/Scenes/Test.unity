@@ -605,7 +605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd97189b4357a0440a4b4fb98861e4cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _vfxController: {fileID: 0}
+  _vfxController: {fileID: 2046883301}
   _rhiButton: {fileID: 2300194444716485795}
   _noButton: {fileID: 2300194444716485794}
   _ceButton: {fileID: 2300194444716485793}
@@ -2444,6 +2444,17 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 1539857226133384333, guid: 009f5fe3ecca4ee47a39c324428b066b, type: 3}
   m_PrefabInstance: {fileID: 2300194444716485791}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2046883301 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8726382701599774011, guid: 009f5fe3ecca4ee47a39c324428b066b, type: 3}
+  m_PrefabInstance: {fileID: 2300194444716485791}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2672d2ff5db630429ff6c9226e1e728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2073171971
 GameObject:
   m_ObjectHideFlags: 0
