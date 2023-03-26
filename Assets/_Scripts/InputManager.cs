@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InputManager : MonoBehaviour
@@ -19,24 +18,52 @@ public class InputManager : MonoBehaviour
 
     #endregion
 
+    [SerializeField]
+    private UIVFXController _vfxController;
+    
+    [SerializeField]
+    private UIButtonController _rhiButton;
+    [SerializeField]
+    private UIButtonController _noButton;
+    [SerializeField]
+    private UIButtonController _ceButton;
+    [SerializeField]
+    private UIButtonController _rosButton;
+
     public bool[] btnValue;
 
     private void Update()
     {
         if (Input.GetButtonDown("Rhi")) {
-            Debug.Log(btnValue[0] ? "Rhi Valide" : "Rhi Non Valide", this);
+            if (btnValue[0]) {
+                _vfxController.PlayVFXHit(BtnValue.Rhi);
+            } else {
+                _vfxController.PlayVFXMissed();
+            }
         }
 
         if (Input.GetButtonDown("No")) {
-            Debug.Log(btnValue[1] ? "No Valide" : "No Non Valide", this);
+            if (btnValue[0]) {
+                _vfxController.PlayVFXHit(BtnValue.No);
+            } else {
+                _vfxController.PlayVFXMissed();
+            }
         }
 
         if (Input.GetButtonDown("Ce")) {
-            Debug.Log(btnValue[2] ? "Ce Valide" : "Ce Non Valide", this);
+            if (btnValue[0]) {
+                _vfxController.PlayVFXHit(BtnValue.Ce);
+            } else {
+                _vfxController.PlayVFXMissed();
+            }
         }
 
         if (Input.GetButtonDown("Ros")) {
-            Debug.Log(btnValue[3] ? "Ros Valide" : "Ros Non Valide", this);
+            if (btnValue[0]) {
+                _vfxController.PlayVFXHit(BtnValue.Ros);
+            } else {
+                _vfxController.PlayVFXMissed();
+            }
         }
 
         if (Input.GetButtonDown("Pause")) {
@@ -52,7 +79,7 @@ public class InputManager : MonoBehaviour
     public IEnumerator ProcessListening(ProcessedPartition processedPartition)
     {
         //before teach
-        float currentTime = (float)AudioManager.BaseTime+processedPartition.BeforeTeachTime;
+        float currentTime = processedPartition.BeforeTeachTime;
 
         //teach
         for (int i = 0; i < processedPartition.Times.Count; i++) {
@@ -64,30 +91,50 @@ public class InputManager : MonoBehaviour
             currentTime += processedPartition.BtwTimes[i];
         }
 
-        //between teach & listen
-        currentTime += processedPartition.BtwTeachAndListenTime;
-
+        // VFX
+        var animationDuration = processedPartition.BtwTeachAndListenTime+processedPartition.Times[0] / 2f;
+        
         yield return new WaitForSeconds(currentTime);
-        currentTime = 0f;
+        
+        var nextButton = processedPartition.BtnScript[0] switch {
+            BtnValue.Rhi => _rhiButton,
+            BtnValue.No => _noButton,
+            BtnValue.Ce => _ceButton,
+            BtnValue.Ros => _rosButton,
+        };
+        nextButton.PlayAnimation(animationDuration);
 
+        //between teach & listen
+        
+        yield return new WaitForSeconds(processedPartition.BtwTeachAndListenTime);
+        
         //listen
         for (int i = 0; i < processedPartition.Times.Count; i++) {
             //allow correct input
             btnValue[(int)processedPartition.BtnScript[i]] = true;
+            Debug.Log($"{btnValue[(int)processedPartition.BtnScript[i]]} is up!");
 
-            currentTime += processedPartition.Times[i];
-            yield return new WaitForSeconds(currentTime);
-            currentTime = 0f;
+            // VFX
+
+            yield return new WaitForSeconds(processedPartition.Times[i]);
 
             //reset input
             btnValue[(int)processedPartition.BtnScript[i]] = false;
+            Debug.Log($"{btnValue[(int)processedPartition.BtnScript[i]]} end");
 
-            if (i >= processedPartition.BtwTimes.Count)
-                continue;
+            if (i >= processedPartition.Times.Count - 1)
+                break;
 
-            currentTime += processedPartition.BtwTimes[i];
-            yield return new WaitForSeconds(currentTime);
-            currentTime = 0f;
+            nextButton = processedPartition.BtnScript[i+1] switch {
+                BtnValue.Rhi => _rhiButton,
+                BtnValue.No => _noButton,
+                BtnValue.Ce => _ceButton,
+                BtnValue.Ros => _rosButton,
+            };
+            
+            nextButton.PlayAnimation(processedPartition.BtwTimes[i] + processedPartition.Times[i+1] / 2f);
+            
+            yield return new WaitForSeconds(processedPartition.BtwTimes[i]);
         }
     }
 }

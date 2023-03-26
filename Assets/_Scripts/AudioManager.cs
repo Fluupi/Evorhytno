@@ -40,7 +40,7 @@ public class AudioManager : MonoBehaviour
             btnAudioSourcesTeach[i].PlayScheduled(currentTime);
 
             Debug.Log(
-                $"Scheduled {btnAudioSourcesTeach[i].name} to play {btnAudioSourcesTeach[i].clip.name} at {currentTime}");
+                $"Scheduled {btnAudioSourcesTeach[i].name} to play {btnAudioSourcesTeach[i].clip.name} at {currentTime - BaseTime}");
 
             if (i >= processedPartition.BtwTimes.Count)
                 continue;
@@ -57,7 +57,7 @@ public class AudioManager : MonoBehaviour
             btnAudioSourcesListen[i].PlayScheduled(currentTime);
         
             Debug.Log(
-                $"Scheduled {btnAudioSourcesListen[i].name} to play {btnAudioSourcesListen[i].clip.name} at {currentTime}");
+                $"Scheduled {btnAudioSourcesListen[i].name} to play {btnAudioSourcesListen[i].clip.name} at {currentTime - BaseTime}");
         
             if (i >= processedPartition.BtwTimes.Count)
                 continue;
