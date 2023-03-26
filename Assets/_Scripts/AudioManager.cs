@@ -7,7 +7,6 @@ public class AudioManager : MonoBehaviour
     public UnityEvent<ProcessedPartition> OnPlay;
 
     [Header("Audio Source Refs")]
-    [SerializeField] private AudioSource ambianceAudioSource;
     [SerializeField] private AudioSource uiAudioSource;
     [SerializeField] private List<AudioSource> btnAudioSourcesTeach;
     [SerializeField] private List<AudioSource> btnAudioSourcesListen;
@@ -28,7 +27,6 @@ public class AudioManager : MonoBehaviour
 
         PrepareSounds(processedPartition.BtnScript);
 
-        ambianceAudioSource.Play();
         OnPlay.Invoke(processedPartition);
 
         //before teach
@@ -81,10 +79,5 @@ public class AudioManager : MonoBehaviour
     {
         // foreach (var audioSource in btnAudioSources)
         //     audioSource.Stop();
-    }
-
-    public void UpdateAmbiant(AudioClip dataAmbiantAudioClip)
-    {
-        ambianceAudioSource.clip = dataAmbiantAudioClip;
     }
 }

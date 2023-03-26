@@ -36,7 +36,7 @@ public abstract class GameMode : MonoBehaviour
 
     public void UpdateData(BiOption data)
     {
-        audioManager.UpdateAmbiant(data.AmbiantAudioClip);
+        AmbiantMusicController.Instance.PlayAmbiant(data.AmbiantAudioClip);
     }
 }
 

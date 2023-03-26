@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
@@ -11,6 +10,9 @@ public class IntroductionController : MonoBehaviour
     [SerializeField]
     private SceneReference _gameScene;
 
+    [SerializeField]
+    private AudioClip _introClip;
+
     private int _currentIndex = -1;
 
     private void Awake()
@@ -22,6 +24,7 @@ public class IntroductionController : MonoBehaviour
 
     private void Start()
     {
+        AmbiantMusicController.Instance.PlayAmbiant(_introClip);
         NextText();
     }
 
