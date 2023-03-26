@@ -36,7 +36,21 @@ public class Rhino : MonoBehaviour
             return;
 
         if (Vector3.Distance(transform.position, destination) <= span)
+        {
             ChooseNewDestination();
+            if (destination.x > transform.position.x && aliveGameObject.transform.localScale.x < 0 
+                || destination.x < transform.position.x && aliveGameObject.transform.localScale.x > 0)
+            {
+                Vector3 correctScale = new Vector3(
+                    aliveGameObject.transform.localScale.x * -1, 
+                    aliveGameObject.transform.localScale.y, 
+                    aliveGameObject.transform.localScale.z
+                    );
+
+                aliveGameObject.transform.localScale = correctScale;
+            }
+
+        }
 
         transform.position = Vector3.MoveTowards(transform.position, destination, speed * Time.deltaTime * (Pause ? 0f : speedPercentage));
     }

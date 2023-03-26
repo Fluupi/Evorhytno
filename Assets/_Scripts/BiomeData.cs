@@ -27,5 +27,6 @@ public struct BiOption
     public AudioClip AmbiantAudioClip;
 
     public Sprite RhinoSprite;
-    public Sprite BackgroundSprite;
+
+    public Vector3 RhinoScale;
 }
