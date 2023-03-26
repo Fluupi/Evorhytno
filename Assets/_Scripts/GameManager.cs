@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,6 +9,12 @@ public class GameManager : MonoBehaviour
 
     private static GameManager instance;
     public static GameManager Instance => instance;
+
+    [SerializeField]
+    private SceneReference _endScreenWin;
+
+    [SerializeField]
+    private SceneReference _endScreenLose;
 
     private void Awake()
     {
@@ -73,12 +80,14 @@ public class GameManager : MonoBehaviour
     {
         currentGameMode.Stop();
         Debug.Log("You Lost");
+        SceneManager.LoadScene(_endScreenLose);
     }
 
     public void Win()
     {
         currentGameMode.Stop();
         Debug.Log("You Won");
+        SceneManager.LoadScene(_endScreenWin);
     }
 
     #endregion
