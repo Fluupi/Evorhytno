@@ -10,7 +10,7 @@ public class BaseMode : GameMode
 
     public override void ChooseBiome()
     {
-        GameManager.Instance.CurrentBiome = biomeScript[currentLevel];
+        GameManager.Instance.UpdateData(biomeScript[currentLevel]);
     }
 
     public override void LaunchNextLevel()
