@@ -18,9 +18,12 @@ public class Rhino : MonoBehaviour
     [SerializeField] private float span;
     private Vector3 destination;
 
+    private MeshRenderer renderer;
+
     private void Start()
     {
         SetAlive(true);
+        renderer = aliveGameObject.GetComponent<MeshRenderer>();
     }
 
     public void SetAlive(bool alive)
@@ -57,11 +60,12 @@ public class Rhino : MonoBehaviour
     private void ChooseNewDestination()
     {
         Vector2 nextPos = Random.insideUnitCircle * moveArea.lossyScale.x * .5f;
-        destination = new Vector3(nextPos.x, 0f, nextPos.y);
+        destination = new Vector3(nextPos.x, 0.75f, nextPos.y);
     }
 
     public void LoadData(Vector3 dataRhinoScale, Material dataRhinoMat)
     {
-        aliveGameObject.GetComponent<MeshRenderer>().materials[0] = dataRhinoMat;
+        //Debug.Log($"renderer {renderer==null}; material {renderer.material}; new mat {dataRhinoMat}");
+        //renderer.material = dataRhinoMat;
     }
 }
