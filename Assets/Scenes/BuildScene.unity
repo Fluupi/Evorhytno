@@ -461,6 +461,18 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6627059012753982324, guid: b5042a8624c646e4dafa3ae8347ae16a, type: 3}
+      propertyPath: _endScreenWin.scenePath
+      value: Assets/Scenes/EndScreen Win.unity
+      objectReference: {fileID: 0}
+    - target: {fileID: 6627059012753982324, guid: b5042a8624c646e4dafa3ae8347ae16a, type: 3}
+      propertyPath: _endScreenLose.scenePath
+      value: Assets/Scenes/EndScreen Lose.unity
+      objectReference: {fileID: 0}
+    - target: {fileID: 6627059012753982324, guid: b5042a8624c646e4dafa3ae8347ae16a, type: 3}
+      propertyPath: _endScreenWin.sceneAsset
+      value: 
+      objectReference: {fileID: 102900000, guid: cb5d05b8728be0446a0055c5537e1fca, type: 3}
+    - target: {fileID: 6627059012753982324, guid: b5042a8624c646e4dafa3ae8347ae16a, type: 3}
       propertyPath: rhinoLives.Array.data[0]
       value: 
       objectReference: {fileID: 1258725722}
@@ -484,6 +496,10 @@ PrefabInstance:
       propertyPath: rhinoLives.Array.data[5]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6627059012753982324, guid: b5042a8624c646e4dafa3ae8347ae16a, type: 3}
+      propertyPath: _endScreenLose.sceneAsset
+      value: 
+      objectReference: {fileID: 102900000, guid: 181fd6af38f777649a3732f1d4f99a60, type: 3}
     - target: {fileID: 6627059012753982324, guid: b5042a8624c646e4dafa3ae8347ae16a, type: 3}
       propertyPath: OnForetAppear.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -755,7 +771,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2300194444486068594, guid: 009f5fe3ecca4ee47a39c324428b066b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 7
+      value: -67
       objectReference: {fileID: 0}
     - target: {fileID: 2300194444486068594, guid: 009f5fe3ecca4ee47a39c324428b066b, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1842,6 +1858,63 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1001 &1598218167
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7627280910695433123, guid: 0b86b3a5e49866949b2408cc4cf561c7, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7627280910695433123, guid: 0b86b3a5e49866949b2408cc4cf561c7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7627280910695433123, guid: 0b86b3a5e49866949b2408cc4cf561c7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7627280910695433123, guid: 0b86b3a5e49866949b2408cc4cf561c7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7627280910695433123, guid: 0b86b3a5e49866949b2408cc4cf561c7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7627280910695433123, guid: 0b86b3a5e49866949b2408cc4cf561c7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7627280910695433123, guid: 0b86b3a5e49866949b2408cc4cf561c7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7627280910695433123, guid: 0b86b3a5e49866949b2408cc4cf561c7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7627280910695433123, guid: 0b86b3a5e49866949b2408cc4cf561c7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7627280910695433123, guid: 0b86b3a5e49866949b2408cc4cf561c7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7627280910695433123, guid: 0b86b3a5e49866949b2408cc4cf561c7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7627280910695433124, guid: 0b86b3a5e49866949b2408cc4cf561c7, type: 3}
+      propertyPath: m_Name
+      value: Ambiant Music
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0b86b3a5e49866949b2408cc4cf561c7, type: 3}
 --- !u!1 &1693455141
 GameObject:
   m_ObjectHideFlags: 0
