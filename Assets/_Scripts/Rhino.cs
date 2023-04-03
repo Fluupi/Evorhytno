@@ -18,12 +18,12 @@ public class Rhino : MonoBehaviour
     [SerializeField] private float span;
     private Vector3 destination;
 
-    private MeshRenderer renderer;
+    private MeshRenderer _renderer;
 
-    private void Start()
+    private void Awake()
     {
         SetAlive(true);
-        renderer = aliveGameObject.GetComponent<MeshRenderer>();
+        _renderer = aliveGameObject.GetComponent<MeshRenderer>();
     }
 
     public void SetAlive(bool alive)
@@ -65,7 +65,8 @@ public class Rhino : MonoBehaviour
 
     public void LoadData(Vector3 dataRhinoScale, Material dataRhinoMat)
     {
-        //Debug.Log($"renderer {renderer==null}; material {renderer.material}; new mat {dataRhinoMat}");
-        //renderer.material = dataRhinoMat;
+        Material[] mats = _renderer.materials;
+        mats[0] = dataRhinoMat;
+        _renderer.materials = mats;
     }
 }

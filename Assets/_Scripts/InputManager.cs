@@ -46,7 +46,7 @@ public class InputManager : MonoBehaviour
                 _inputOk = true;
                 _vfxController.PlayVFXHit(BtnValue.Rhi);
             } else {
-                _vfxController.PlayVFXMissed();
+                _vfxController.PlayVFXMissed(BtnValue.Rhi);
                 GameManager.Instance.LooseLifePoint();
             }
         }
@@ -56,7 +56,7 @@ public class InputManager : MonoBehaviour
                 _inputOk = true;
                 _vfxController.PlayVFXHit(BtnValue.No);
             } else {
-                _vfxController.PlayVFXMissed();
+                _vfxController.PlayVFXMissed(BtnValue.No);
                 GameManager.Instance.LooseLifePoint();
             }
         }
@@ -65,7 +65,7 @@ public class InputManager : MonoBehaviour
             if (btnValue[2]) {
                 _vfxController.PlayVFXHit(BtnValue.Ce);
             } else {
-                _vfxController.PlayVFXMissed();
+                _vfxController.PlayVFXMissed(BtnValue.Ce);
                 GameManager.Instance.LooseLifePoint();
             }
         }
@@ -75,7 +75,7 @@ public class InputManager : MonoBehaviour
                 _inputOk = true;
                 _vfxController.PlayVFXHit(BtnValue.Ros);
             } else {
-                _vfxController.PlayVFXMissed();
+                _vfxController.PlayVFXMissed(BtnValue.Ros);
                 GameManager.Instance.LooseLifePoint();
             }
         }
@@ -127,7 +127,6 @@ public class InputManager : MonoBehaviour
             Debug.Log($"{processedPartition.BtnScript[i]} is up!");
 
             // VFX
-
             yield return new WaitForSeconds(processedPartition.Times[i]);
 
             //reset input
@@ -141,10 +140,12 @@ public class InputManager : MonoBehaviour
             {
                 _inputOk = false;
             }
-            
 
             if (i >= processedPartition.Times.Count - 1)
+            {
+                yield return new WaitForSeconds(processedPartition.Times[i]);
                 break;
+            }
 
             nextButton = processedPartition.BtnScript[i+1] switch {
                 BtnValue.Rhi => _rhiButton,
@@ -157,7 +158,7 @@ public class InputManager : MonoBehaviour
             
             yield return new WaitForSeconds(processedPartition.BtwTimes[i]);
         }
-
+        
         GameManager.Instance.NextStep();
     }
 }

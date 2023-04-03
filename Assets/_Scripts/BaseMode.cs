@@ -15,13 +15,12 @@ public class BaseMode : GameMode
 
     public override void LaunchNextLevel()
     {
-        if (currentLevel >= levels.Length)
+        if (++currentLevel >= levels.Length)
         {
             GameManager.Instance.Win();
             return;
         }
 
-        currentLevel++;
         progress = 0;
         Debug.Log($"Launching level {currentLevel}...");
         ChooseBiome();

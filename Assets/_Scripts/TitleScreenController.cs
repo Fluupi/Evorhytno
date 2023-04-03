@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class TitleScreenController : MonoBehaviour
 {
     [SerializeField]
+    private SceneReference _introScene;
+
+    [SerializeField]
     private SceneReference _gameScene;
     
     [Space]
@@ -53,6 +56,9 @@ public class TitleScreenController : MonoBehaviour
 
     private void LoadScene()
     {
-        SceneManager.LoadScene(_gameScene);
+        if (AmbiantMusicController.Instance != null)
+            SceneManager.LoadScene(_gameScene);
+        else
+            SceneManager.LoadScene(_introScene);
     }
 }

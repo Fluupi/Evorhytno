@@ -41,9 +41,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameMode currentGameMode;
     [Space]
     [SerializeField] private GameMode baseGameMode;
-    [Space] public BtnValue[] CutDino = { BtnValue.Rhi, BtnValue.No, BtnValue.Ce, BtnValue.Ros };
     public BiomeData Data;
-    public BiOption CurrentOption;
+    [HideInInspector] public BiOption CurrentOption;
 
     [Header("Rhino refs")]
     [SerializeField] private GameObject rhinoGroup;
@@ -73,21 +72,16 @@ public class GameManager : MonoBehaviour
     {
         int i = 0;
 
-        while (!rhinoLives[i].IsAlive)
-        {
-            if (i < rhinoLives.Length)
-            {
-                LooseGame();
-                return;
-            }
-            
+        while (i < rhinoLives.Length && !rhinoLives[i].IsAlive)
             i++;
+
+        if (i+1 >= rhinoLives.Length)
+        {
+            LooseGame();
+            return;
         }
 
         rhinoLives[i].SetAlive(false);
-
-        if (i == rhinoLives.Length-1)
-            LooseGame();
     }
 
     private void LooseGame()

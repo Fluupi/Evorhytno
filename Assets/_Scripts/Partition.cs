@@ -5,10 +5,8 @@ using Random = UnityEngine.Random;
 
 public class Partition : MonoBehaviour
 {
-    public ProcessedPartition ProcessedPartition;
     private bool[] availableButtons;
-
-    [Header("Param")]
+    
     [SerializeField] private TimeBorders beforeTeachTimeBorders, timeBorders, btwTimeBorders, btwTeachAndListenTimeBorders;
 
     public void UpdateAvailableButtons(bool[] newSet)
@@ -51,8 +49,7 @@ public class Partition : MonoBehaviour
         //between teach and listen Time
         processedPartition.BtwTeachAndListenTime =
             Random.Range(btwTeachAndListenTimeBorders.Min, btwTeachAndListenTimeBorders.Max);
-
-        ProcessedPartition = processedPartition;
+        
         return processedPartition;
     }
 }

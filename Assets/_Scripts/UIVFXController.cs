@@ -8,6 +8,9 @@ using Random = UnityEngine.Random;
 
 public class UIVFXController : MonoBehaviour
 {
+    [SerializeField] 
+    private bool webGLBuild;
+
     [SerializeField]
     private ParticleSystem _vfxHit;
     
@@ -71,6 +74,7 @@ public class UIVFXController : MonoBehaviour
         seq.Append(rect.DOScale(1.5f, _wordDuration).SetEase(Ease.OutCirc));
         seq.Join(rect.DOLocalMove(new Vector3(Random.Range(-50, 50), Random.Range(50,100), 0), _wordDuration).SetEase(Ease.OutCirc));
         seq.Append(image.DOFade(0, _wordFadeOutDuration).SetEase(_wordFadeOutEase));
+        StartCoroutine(FadeColor(image, Color.green));
         seq.Play().OnComplete(() => {
             rect.localScale = Vector3.one;
             rect.localPosition = Vector3.zero;
@@ -85,8 +89,38 @@ public class UIVFXController : MonoBehaviour
     }
 
     [ContextMenu("Missed")]
-    public void PlayVFXMissed()
+    public void PlayVFXMissed(BtnValue button)
     {
+        if (webGLBuild)
+        {
+            var image = button switch
+            {
+                BtnValue.Rhi => _imageRhi,
+                BtnValue.No => _imageNo,
+                BtnValue.Ce => _imageCe,
+                BtnValue.Ros => _imageRos
+            };
+            StartCoroutine(FadeColor(image, Color.red));
+        }
+
         _vfxMissed.Play();
+    }
+
+    private IEnumerator FadeColor(Image image, Color goalColor)
+    {
+        float elapsedTime = 0;
+        float coloringTime = _wordFadeInDuration + _wordDuration;
+        Color baseColor = new Color(0, 0, 0, 0);
+
+        while (elapsedTime < coloringTime)
+        {
+            image.color = Color.Lerp(baseColor, goalColor, elapsedTime / coloringTime);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(_wordFadeOutDuration);
+
+        image.color = baseColor;
     }
 }

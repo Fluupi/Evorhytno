@@ -13,7 +13,7 @@ public class AmbiantMusicController : MonoBehaviour
     private void Awake()
     {
         if (instance != null && instance != this)
-            Destroy(gameObject);
+            Destroy(this);
 
         DontDestroyOnLoad(gameObject);
         instance = this;
@@ -27,6 +27,9 @@ public class AmbiantMusicController : MonoBehaviour
 
     public void PlayAmbiant(AudioClip clip)
     {
+        if (_source == null)
+            _source = GetComponent<AudioSource>();
+
         _source.clip = clip;
         _source.Play();
     }
