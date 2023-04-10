@@ -8,9 +8,6 @@ public class IntroductionController : MonoBehaviour
     private CanvasGroup[] _texts;
 
     [SerializeField]
-    private SceneReference _gameScene;
-
-    [SerializeField]
     private AudioClip _introClip;
 
     private int _currentIndex = -1;
@@ -48,7 +45,7 @@ public class IntroductionController : MonoBehaviour
         _currentIndex++;
 
         if (_currentIndex >= _texts.Length) {
-            LoadGameScene();
+            MySceneManager.Instance.LoadTitle();
             return;
         }
         FadeIn(_texts[_currentIndex]);
@@ -64,10 +61,5 @@ public class IntroductionController : MonoBehaviour
     {
         text.DOKill();
         text.DOFade(1, 1f).SetEase(Ease.OutCubic);
-    }
-
-    private void LoadGameScene()
-    {
-        SceneManager.LoadScene(_gameScene);
     }
 }

@@ -974,7 +974,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2654283722184582450}
   - component: {fileID: 2654283722184582451}
-  - component: {fileID: 2654283722184582448}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -1027,7 +1026,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  ambianceAudioSource: {fileID: 0}
   uiAudioSource: {fileID: 2654283721355818953}
   btnAudioSourcesTeach: []
   btnAudioSourcesListen: []
@@ -1036,33 +1034,3 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 818cc5919088ea343b0ea002f4570a1d, type: 3}
   - {fileID: 8300000, guid: 23e990268128d5c4abe44a7601071655, type: 3}
   - {fileID: 8300000, guid: 49b4c09deea46294785a213fa6abe5eb, type: 3}
---- !u!114 &2654283722184582448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2654283722184582449}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b0d39b90daf4e4469c2e1d1dd32e913, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ProcessedPartition:
-    BtnScript: 
-    BeforeTeachTime: 0
-    Times: []
-    BtwTimes: []
-    BtwTeachAndListenTime: 0
-  beforeTeachTimeBorders:
-    Min: 2
-    Max: 5
-  timeBorders:
-    Min: 0.2
-    Max: 1
-  btwTimeBorders:
-    Min: 0.1
-    Max: 1
-  btwTeachAndListenTimeBorders:
-    Min: 0.5
-    Max: 2

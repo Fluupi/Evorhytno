@@ -6,14 +6,6 @@ using UnityEngine.UI;
 public class TitleScreenController : MonoBehaviour
 {
     [SerializeField]
-    private SceneReference _introScene;
-
-    [SerializeField]
-    private SceneReference _gameScene;
-    
-    [Space]
-    
-    [SerializeField]
     private Image _backgroundImage;
     
     [SerializeField]
@@ -51,14 +43,6 @@ public class TitleScreenController : MonoBehaviour
         var seq = DOTween.Sequence();
         seq.Append(FadeOut());
         seq.AppendInterval(_sceneChangeDelay);
-        seq.AppendCallback(LoadScene);
-    }
-
-    private void LoadScene()
-    {
-        if (AmbiantMusicController.Instance != null)
-            SceneManager.LoadScene(_gameScene);
-        else
-            SceneManager.LoadScene(_introScene);
+        seq.AppendCallback(MySceneManager.Instance.LoadGame);
     }
 }

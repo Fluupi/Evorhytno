@@ -1112,7 +1112,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
@@ -1365,35 +1365,35 @@ PrefabInstance:
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: -1855035022936199433, guid: 81e806b7eba1e7c4dbe0bb32c49d0e03, type: 2}
-    - target: {fileID: 2654283722184582448, guid: 2b4832001261fcb4d9655965be5753fb, type: 3}
+    - target: {fileID: 0}
       propertyPath: timeBorders.Max
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2654283722184582448, guid: 2b4832001261fcb4d9655965be5753fb, type: 3}
+    - target: {fileID: 0}
       propertyPath: timeBorders.Min
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 2654283722184582448, guid: 2b4832001261fcb4d9655965be5753fb, type: 3}
+    - target: {fileID: 0}
       propertyPath: btwTimeBorders.Min
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 2654283722184582448, guid: 2b4832001261fcb4d9655965be5753fb, type: 3}
+    - target: {fileID: 0}
       propertyPath: beforeTeachTimeBorders.Max
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 2654283722184582448, guid: 2b4832001261fcb4d9655965be5753fb, type: 3}
+    - target: {fileID: 0}
       propertyPath: beforeTeachTimeBorders.Min
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 2654283722184582448, guid: 2b4832001261fcb4d9655965be5753fb, type: 3}
+    - target: {fileID: 0}
       propertyPath: btwTeachAndListenTimeBorders.Max
       value: 1.5
       objectReference: {fileID: 0}
-    - target: {fileID: 2654283722184582448, guid: 2b4832001261fcb4d9655965be5753fb, type: 3}
+    - target: {fileID: 0}
       propertyPath: btwTeachAndListenTimeBorders.Min
       value: 1.5
       objectReference: {fileID: 0}
-    - target: {fileID: 2654283722184582448, guid: 2b4832001261fcb4d9655965be5753fb, type: 3}
+    - target: {fileID: 0}
       propertyPath: ProcessedPartition.BtnScript.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -1489,8 +1489,7 @@ PrefabInstance:
       propertyPath: OnPlay.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: InputManager, Assembly-CSharp
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2654283722184582448, guid: 2b4832001261fcb4d9655965be5753fb, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b4832001261fcb4d9655965be5753fb, type: 3}
 --- !u!4 &1008732984 stripped
 Transform:

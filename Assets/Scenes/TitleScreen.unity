@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -229,11 +229,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _introScene:
-    sceneAsset: {fileID: 102900000, guid: 280970c38928f6543a34b4e0858ead2f, type: 3}
-    scenePath: Assets/Scenes/Introduction.unity
+    sceneAsset: {fileID: 0}
+    scenePath: 
   _gameScene:
     sceneAsset: {fileID: 102900000, guid: 9fc0d4010bbf28b4594072e72b8655ab, type: 3}
-    scenePath: Assets/Scenes/BuildScene.unity
+    scenePath: Assets/Scenes/GameScene.unity
   _backgroundImage: {fileID: 1435368809}
   _fadeOutColor: {r: 0, g: 0, b: 0, a: 1}
   _fadeOutDuration: 3
