@@ -31,6 +31,8 @@ public class MySceneManager : MonoBehaviour
 
     [HideInInspector]
     public bool IsWin;
+    [HideInInspector]
+    public Mode GameMode;
 
     public void LoadTitle()
     {

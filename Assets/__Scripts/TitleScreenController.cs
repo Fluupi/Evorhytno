@@ -19,16 +19,27 @@ public class TitleScreenController : MonoBehaviour
 
     [SerializeField]
     private float _sceneChangeDelay = 1f;
-
-    
     
     private void Update()
     {
-        if (Input.anyKeyDown ||
-            Input.GetButtonDown("Rhi") ||
-            Input.GetButtonDown("No") ||
-            Input.GetButtonDown("Ce") ||
-            Input.GetButtonDown("Ros")) {
+        if (Input.GetButtonDown("No"))
+        {
+            MySceneManager.Instance.GameMode = Mode.Procedural;
+            StartGame();
+        }
+        /*if (Input.GetButtonDown("Ce"))
+        {
+            MySceneManager.Instance.GameMode = Mode.SimpleEndless;
+            StartGame();
+        }*/
+        /*if (Input.GetButtonDown("Ros"))
+        {
+            MySceneManager.Instance.GameMode = Mode.ChaoticEndless;
+            StartGame();
+        }*/
+        if (Input.GetButtonDown("Rhi") || Input.anyKeyDown)
+        {
+            MySceneManager.Instance.GameMode = Mode.Scripted;
             StartGame();
         }
     }

@@ -7,11 +7,6 @@ using UnityEngine.UI;
 public class EndScreenController : MonoBehaviour
 {
     [SerializeField]
-    private SceneReference _startScene;
-    
-    [Space]
-    
-    [SerializeField]
     private Image _backgroundImage;
     
     [SerializeField]
@@ -57,6 +52,6 @@ public class EndScreenController : MonoBehaviour
 
     private void LoadScene()
     {
-        SceneManager.LoadScene(_startScene);
+        MySceneManager.Instance.LoadTitle();
     }
 }

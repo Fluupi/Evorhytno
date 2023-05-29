@@ -228,12 +228,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd324e48c9a17874e8e7e9a16ef78b17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _introScene:
-    sceneAsset: {fileID: 0}
-    scenePath: 
-  _gameScene:
-    sceneAsset: {fileID: 102900000, guid: 9fc0d4010bbf28b4594072e72b8655ab, type: 3}
-    scenePath: Assets/Scenes/GameScene.unity
   _backgroundImage: {fileID: 1435368809}
   _fadeOutColor: {r: 0, g: 0, b: 0, a: 1}
   _fadeOutDuration: 3
