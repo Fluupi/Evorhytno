@@ -26,8 +26,11 @@ public class EndScreenController : MonoBehaviour
     [SerializeField]
     private float _sceneChangeDelay = 1f;
 
-    
-    
+    private void Start()
+    {
+        transform.Find(MySceneManager.Instance.IsWin ? "Win" : "Lose")?.gameObject.SetActive(true);
+    }
+
     private void Update()
     {
         if (Input.anyKeyDown ||

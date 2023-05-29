@@ -21,9 +21,6 @@ public class AudioManager : MonoBehaviour
         Debug.Log("Start PlayScheduled...");
         
         BaseTime = AudioSettings.dspTime;
-        
-        GameManager gm = GameManager.Instance;
-        gm.Data.SwitchOption();
 
         PrepareSounds(processedPartition.BtnScript);
 

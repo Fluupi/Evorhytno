@@ -63,6 +63,7 @@ public class InputManager : MonoBehaviour
 
         if (Input.GetButtonDown("Ce")) {
             if (btnValue[2]) {
+                _inputOk = true;
                 _vfxController.PlayVFXHit(BtnValue.Ce);
             } else {
                 _vfxController.PlayVFXMissed(BtnValue.Ce);

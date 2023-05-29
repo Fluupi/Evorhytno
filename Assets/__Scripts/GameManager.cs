@@ -1,21 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
     #region Singleton
-
     private static GameManager instance;
     public static GameManager Instance => instance;
-
-    [SerializeField]
-    private SceneReference _endScreenWin;
-
-    [SerializeField]
-    private SceneReference _endScreenLose;
 
     private void Awake()
     {
@@ -24,7 +15,6 @@ public class GameManager : MonoBehaviour
 
         instance = this;
     }
-    
     #endregion
 
     public UnityEvent OnForetAppear;
@@ -32,25 +22,43 @@ public class GameManager : MonoBehaviour
     public UnityEvent OnRiviereAppear;
     public UnityEvent OnGlacierAppear;
 
-    [Header("Debug")]
-    [SerializeField] private bool startToggle;
-    [SerializeField] private bool pauseToggle;
-    [SerializeField] private bool isPaused;
+    [Header("Game Mode")]
+    public Mode TestMode;
+    public GameMode CurrentGameMode;
+    [SerializeField] private GameMode scriptedGameMode;
+    [SerializeField] private GameMode proceduralGameMode;
+    [SerializeField] private GameMode testGameMode;
 
-    [Header("Refs")]
-    [SerializeField] private GameMode currentGameMode;
-    [Space]
-    [SerializeField] private GameMode baseGameMode;
-    public BiomeData Data;
-    [HideInInspector] public BiOption CurrentOption;
+    [Header("Biome Data")]
+    [SerializeField] private BiomeDataSO[] biomeDataSO;
+    [SerializeField] private GameObject foretGO;
+    [SerializeField] private GameObject steppeGO;
+    [SerializeField] private GameObject riviereGO;
+    [SerializeField] private GameObject glacierGO;
 
-    [Header("Rhino refs")]
+    [Header("Rhino")]
     [SerializeField] private GameObject rhinoGroup;
     [SerializeField] private Rhino[] rhinoLives;
 
-    public Biome CurrentBiome;
+    public Biome CurrentBiome => CurrentGameMode.GetBiome();
 
     #region GameCycle
+    public void LaunchGame()
+    {
+        PrepareGame();
+
+        //CurrentGameMode = scriptedGameMode;
+        //CurrentGameMode = proceduralGameMode;
+        CurrentGameMode = TestMode switch
+        {
+            Mode.Scripted => scriptedGameMode,
+            Mode.Procedural => proceduralGameMode,
+            Mode.Test => testGameMode
+        };
+
+        CurrentGameMode.LaunchGame();
+    }
+
     public void PrepareGame()
     {
         rhinoGroup.SetActive(true);
@@ -58,15 +66,6 @@ public class GameManager : MonoBehaviour
         foreach (Rhino life in rhinoLives)
             life.SetAlive(true);
     }
-
-    public void LaunchBaseGame()
-    {
-        PrepareGame();
-
-        currentGameMode = baseGameMode;
-        currentGameMode.LaunchGame();
-    }
-    
 
     public void LooseLifePoint()
     {
@@ -86,29 +85,23 @@ public class GameManager : MonoBehaviour
 
     private void LooseGame()
     {
-        currentGameMode.Stop();
+        CurrentGameMode.Stop();
         Debug.Log("You Lost");
-        SceneManager.LoadScene(_endScreenLose);
+        MySceneManager.Instance.LoadEnd(false);
     }
 
     public void Win()
     {
-        currentGameMode.Stop();
+        CurrentGameMode.Stop();
         Debug.Log("You Won");
-        SceneManager.LoadScene(_endScreenWin);
+        MySceneManager.Instance.LoadEnd(true);
     }
 
     #endregion
 
-    public void UpdateData(Biome biome)
+    public void PlayTransition(Biome biome)
     {
-        if(CurrentOption.Scene != null)
-            CurrentOption.Scene.SetActive(false);
-
-        CurrentBiome = biome;
-        Data.SwitchOption();
-
-        switch (CurrentBiome)
+        switch (biome)
         {
             case Biome.Foret:
                 OnForetAppear.Invoke();
@@ -123,50 +116,61 @@ public class GameManager : MonoBehaviour
                 OnGlacierAppear.Invoke();
                 break;
         }
+    }
 
-        if(CurrentOption.Scene == null)
-            Debug.LogError("wtf");
-        else
-            CurrentOption.Scene.SetActive(true);
+    public IEnumerator UpdateData(Biome biome)
+    {
+        foreach (Rhino rhino in rhinoLives)
+            rhino.gameObject.SetActive(false);
+
+        yield return new WaitForSeconds(2.5f);
+
+        foreach (Rhino rhino in rhinoLives)
+            rhino.gameObject.SetActive(true);
+
+        int i = 0;
+
+        while (biomeDataSO[i].Type != biome)
+            i++;
+
+        BiomeDataSO biomeData = biomeDataSO[i];
+
+        switch (biomeData.Type)
+        {
+            case Biome.Foret:
+                foretGO.SetActive(true);
+                break;
+            case Biome.Steppe:
+                steppeGO.SetActive(true);
+                break;
+            case Biome.Riviere:
+                riviereGO.SetActive(true);
+                break;
+            default:
+                glacierGO.SetActive(true);
+                break;
+        }
 
         foreach (var rhino in rhinoLives)
-            rhino.LoadData(CurrentOption.RhinoScale, CurrentOption.RhinoMat);
+            rhino.LoadData(biomeData.RhinoScale, biomeData.RhinoMat);
 
-        currentGameMode.UpdateData(CurrentOption);
+        AmbiantMusicController.Instance.PlayAmbiant(biomeData.AmbiantAudioClip);
     }
 
     public void NextStep()
     {
-        currentGameMode.NextStep();
+        CurrentGameMode.NextStep();
     }
 
     private void Start()
     {
-        LaunchBaseGame();
+        LaunchGame();
     }
+}
 
-    private void Update()
-    {
-        /*if (!startToggle && !pauseToggle)
-            return;
-
-        if (startToggle)
-        {
-            startToggle = false;
-            if (currentGameMode.IsPlaying)
-                return;
-
-            LaunchBaseGame();
-        }
-        
-        if (pauseToggle)
-        {
-            if(currentGameMode == null)
-                return;
-
-            pauseToggle = false;
-
-            PauseToggle();
-        }*/
-    }
+public enum Mode
+{
+    Scripted,
+    Procedural,
+    Test
 }

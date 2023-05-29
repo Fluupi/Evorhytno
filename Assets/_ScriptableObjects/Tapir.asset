@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90da590775bd7b74192956ae46465d63, type: 3}
+  m_Name: Tapir
+  m_EditorClassIdentifier: 
+  Type: 0
+  TransitionPrefab: {fileID: 1196521233714866915, guid: 7b24c1a6625f06543a257bd382a6228a, type: 3}
+  BiomePrefab: {fileID: 7476932041374854788, guid: e786660450573774b9c24e61dbd78e02, type: 3}
+  AmbiantAudioClip: {fileID: 8300000, guid: f3da8526261c74b47b399e92135d1168, type: 3}
+  RhinoScale: {x: 0, y: 0, z: 0}
+  RhinoMat: {fileID: 2100000, guid: 414c6aa297abf214da3add20a3ceeee4, type: 2}

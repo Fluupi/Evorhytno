@@ -5,17 +5,12 @@ using UnityEngine.Playables;
 
 public abstract class GameMode : MonoBehaviour
 {
+    [Header("GameMode")]
     [SerializeField] protected AudioManager audioManager;
     [SerializeField] protected int currentLevel;
-    [SerializeField] protected Partition partition;
-    [SerializeField] protected float gameSpeed;
     [SerializeField] protected bool isPlaying;
 
     protected int progress;
-
-    public bool IsPlaying => isPlaying;
-
-    public abstract void ChooseBiome();
 
     public void LaunchGame()
     {
@@ -36,14 +31,13 @@ public abstract class GameMode : MonoBehaviour
         isPlaying = false;
     }
 
-    public void UpdateData(BiOption data)
-    {
-        AmbiantMusicController.Instance.PlayAmbiant(data.AmbiantAudioClip);
-    }
+    public abstract Biome GetBiome();
+
+    public abstract ProcessedPartition GetPartition();
 
     public void PlayStep()
     {
-        audioManager.PlayScheduled(partition.GenerateRandomScript());
+        audioManager.PlayScheduled(GetPartition());
     }
 
     public void NextStep()

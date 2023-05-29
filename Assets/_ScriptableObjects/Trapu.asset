@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90da590775bd7b74192956ae46465d63, type: 3}
+  m_Name: Trapu
+  m_EditorClassIdentifier: 
+  Type: 2
+  TransitionPrefab: {fileID: 6166685542107214319, guid: 75db89a25e3c5804f840a049f9c9c97d, type: 3}
+  BiomePrefab: {fileID: 288028910814291815, guid: 6def253c4fdb7244aa764d5e1ef1f741, type: 3}
+  AmbiantAudioClip: {fileID: 8300000, guid: d6d8afba71e05eb46a0b3cdb04dc45cc, type: 3}
+  RhinoScale: {x: 0, y: 0, z: 0}
+  RhinoMat: {fileID: 2100000, guid: 6304f40c7ad2f154c8fce05f2f2e95a5, type: 2}

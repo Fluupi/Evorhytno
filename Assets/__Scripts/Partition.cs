@@ -6,12 +6,19 @@ using Random = UnityEngine.Random;
 public class Partition : MonoBehaviour
 {
     private bool[] availableButtons;
-    
-    [SerializeField] private TimeBorders beforeTeachTimeBorders, timeBorders, btwTimeBorders, btwTeachAndListenTimeBorders;
+    [SerializeField] private TimeBorders _beforeTeachTimeBorders, _timeBorders, _btwTimeBorders, _btwTeachAndListenTimeBorders;
 
     public void UpdateAvailableButtons(bool[] newSet)
     {
         availableButtons = newSet;
+    }
+
+    public void UpdateTimeBorders(TimeBorders beforeTeachTimeBorders, TimeBorders timeBorders, TimeBorders btwTimeBorders, TimeBorders btwTeachAndListenTimeBorders)
+    {
+        _beforeTeachTimeBorders       = beforeTeachTimeBorders;
+        _timeBorders                  = timeBorders;
+        _btwTimeBorders               = btwTimeBorders;
+        _btwTeachAndListenTimeBorders = btwTeachAndListenTimeBorders;
     }
 
     public ProcessedPartition GenerateRandomScript(int length = 3)
@@ -36,19 +43,19 @@ public class Partition : MonoBehaviour
         
         //before teach Time
         processedPartition.BeforeTeachTime = 
-            Random.Range(beforeTeachTimeBorders.Min, beforeTeachTimeBorders.Max);
+            Random.Range(_beforeTeachTimeBorders.Min, _beforeTeachTimeBorders.Max);
 
         //teachTimes
         for (int i = 0; i < length; i++)
-            processedPartition.Times.Add(Random.Range(timeBorders.Min, timeBorders.Max));
+            processedPartition.Times.Add(Random.Range(_timeBorders.Min, _timeBorders.Max));
 
         //between TeachTimes
         for (int i = 0; i < length-1; i++)
-            processedPartition.BtwTimes.Add(Random.Range(btwTimeBorders.Min, btwTimeBorders.Max));
+            processedPartition.BtwTimes.Add(Random.Range(_btwTimeBorders.Min, _btwTimeBorders.Max));
 
         //between teach and listen Time
         processedPartition.BtwTeachAndListenTime =
-            Random.Range(btwTeachAndListenTimeBorders.Min, btwTeachAndListenTimeBorders.Max);
+            Random.Range(_btwTeachAndListenTimeBorders.Min, _btwTeachAndListenTimeBorders.Max);
         
         return processedPartition;
     }

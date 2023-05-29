@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -31,6 +29,9 @@ public class MySceneManager : MonoBehaviour
     [SerializeField]
     private SceneReference endScreen;
 
+    [HideInInspector]
+    public bool IsWin;
+
     public void LoadTitle()
     {
         currentScene = titleScreen;
@@ -45,8 +46,8 @@ public class MySceneManager : MonoBehaviour
 
     public void LoadEnd(bool win)
     {
+        IsWin = win;
         currentScene = endScreen;
         SceneManager.LoadScene(currentScene);
-        //
     }
 }
